@@ -15,6 +15,10 @@ var res = {
         //console.log('status', arguments);
         return this;
     },
+    type: function type() {
+        //console.log('type', arguments);
+        return this;
+    },
     send: function send() {
         //console.log('send', arguments);
         return this;
