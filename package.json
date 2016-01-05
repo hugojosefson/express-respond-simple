@@ -1,7 +1,7 @@
 {
   "name": "express-respond-simple",
   "version": "1.0.0",
-  "description": "Responds 200 OK with optional body. For express.",
+  "description": "Creates simple express middleware for responding any status and body.",
   "main": "index.js",
   "scripts": {
     "lint": "eslint *.js test",

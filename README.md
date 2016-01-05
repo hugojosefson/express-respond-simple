@@ -1,7 +1,7 @@
 # express-respond-simple
 
-Creates an [express](http://expressjs.com/) middleware which responds `200 OK`, or other optional code. Response body
-is also optional.
+Simple helpers which create an [express](http://expressjs.com/) middleware, which responds `200 OK`, or any other valid
+code. Optional response body as a string or object can be supplied.
 
 ## Install
 
