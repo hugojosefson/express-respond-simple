@@ -23,11 +23,13 @@ const app = express();
 // status code by number:
 app.get('/health', respond200({status: 'good'}));
 app.get('/empty', respond200()); // Will actually respond '204 No Content' instead of '200 OK' if no body is given
+app.get('/empty-force-200', respond200('', true)); // Will respond '200 OK' with an empty body
 app.get('/paywall', respond402('Please add credits to your account and try again.'));
 
 // equivalently, by name:
 app.get('/health', respond.ok({status: 'good'}));
 app.get('/empty', respond.ok()); // Will actually respond '204 No Content' instead of '200 OK' if no body is given
+app.get('/empty-force-200', respond.ok('', true)); // Will respond '200 OK' with an empty body
 app.get('/paywall', respond.paymentRequired('Please add credits to your account and try again.'));
 
 
@@ -52,6 +54,16 @@ HTTP/1.1 204 No Content
 X-Powered-By: Express
 ETag: W/"a-oQDOV50e1MN2H/N8GYi+8w"
 Date: Tue, 05 Jan 2016 01:39:45 GMT
+Connection: keep-alive
+
+
+$ curl --include http://localhost:3000/empty-force-200
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/plain; charset=utf-8
+Content-Length: 0
+ETag: W/"0-1B2M2Y8AsgTpgAmY7PhCfg"
+Date: Wed, 06 Jan 2016 06:59:56 GMT
 Connection: keep-alive
 
 

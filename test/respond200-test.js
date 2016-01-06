@@ -72,3 +72,63 @@ describe('respond200("All is good.")(req, res)', function () {
         expect(res.sendStatus).to.not.have.been.called;
     });
 });
+
+describe('respond204("some message")', function () {
+    it('to throw "must be empty"', function () {
+        expect(respond204.bind({}, 'some message')).to.throw('must be empty');
+    });
+});
+
+describe('respond200("")(req, res)', function () {
+    it('calls res.sendStatus(204)', function () {
+        respond200('')(null, res);
+        expect(res.sendStatus).to.have.been.called.once.with(204);
+        expect(res.send).to.not.have.been.called;
+        expect(res.status).to.not.have.been.called;
+    });
+});
+
+describe('respond200("", true)(req, res)', function () {
+    it('calls res.status(200).send("")', function () {
+        respond200('', true)(null, res);
+        expect(res.sendStatus).to.not.have.been.called;
+        expect(res.send).to.have.been.called.once.with('');
+        expect(res.status).to.have.been.called.once.with(200);
+    });
+});
+
+describe('respond200(null)(req, res)', function () {
+    it('calls res.sendStatus(204)', function () {
+        respond200(null)(null, res);
+        expect(res.sendStatus).to.have.been.called.once.with(204);
+        expect(res.send).to.not.have.been.called;
+        expect(res.status).to.not.have.been.called;
+    });
+});
+
+describe('respond200(null, true)(req, res)', function () {
+    it('calls res.sendStatus(200)', function () {
+        respond200(null, true)(null, res);
+        expect(res.sendStatus).to.have.been.called.once.with(200);
+        expect(res.send).to.not.have.been.called;
+        expect(res.status).to.not.have.been.called;
+    });
+});
+
+describe('respond200(undefined)(req, res)', function () {
+    it('calls res.sendStatus(204)', function () {
+        respond200(undefined)(undefined, res);
+        expect(res.sendStatus).to.have.been.called.once.with(204);
+        expect(res.send).to.not.have.been.called;
+        expect(res.status).to.not.have.been.called;
+    });
+});
+
+describe('respond200(undefined, true)(req, res)', function () {
+    it('calls res.sendStatus(200)', function () {
+        respond200(undefined, true)(undefined, res);
+        expect(res.sendStatus).to.have.been.called.once.with(200);
+        expect(res.send).to.not.have.been.called;
+        expect(res.status).to.not.have.been.called;
+    });
+});
