@@ -35,5 +35,5 @@ module.exports = function respond(code, body) {
 status.codes.forEach(function (code) {
     var responder = responderWithCode(code);
     module.exports['respond' + code] = responder;
-    module.exports[camel(status(code))] = responder;
+    module.exports[camel(status[code])] = responder;
 });
