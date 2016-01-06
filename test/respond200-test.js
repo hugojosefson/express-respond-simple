@@ -97,6 +97,15 @@ describe('respond200("", true)(req, res)', function () {
     });
 });
 
+describe('respond204("", true)(req, res)', function () {
+    it('calls res.status(204).send("")', function () {
+        respond204('', true)(null, res);
+        expect(res.sendStatus).to.not.have.been.called;
+        expect(res.send).to.have.been.called.once.with('');
+        expect(res.status).to.have.been.called.once.with(204);
+    });
+});
+
 describe('respond200(null)(req, res)', function () {
     it('calls res.sendStatus(204)', function () {
         respond200(null)(null, res);
