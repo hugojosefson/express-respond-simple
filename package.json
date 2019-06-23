@@ -23,7 +23,7 @@
   "author": "Hugo Josefson <hugo@josefson.org>",
   "license": "MIT",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=6.2.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
