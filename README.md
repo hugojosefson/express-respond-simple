@@ -3,7 +3,7 @@
 Simple helpers which create an [express](http://expressjs.com/) middleware, which responds `200 OK`, or any other valid
 code. Optional response body as a string or object can be supplied.
 
-[![Build Status](https://travis-ci.org/hugojosefson/express-respond-simple.svg?branch=master)](https://travis-ci.org/hugojosefson/express-respond-simple)
+[![Build Status](https://travis-ci.org/hugojosefson/express-respond-simple.svg?branch=master)](https://travis-ci.org/hugojosefson/express-respond-simple) [![Greenkeeper badge](https://badges.greenkeeper.io/hugojosefson/express-respond-simple.svg)](https://greenkeeper.io/)
 
 ## Install
 
