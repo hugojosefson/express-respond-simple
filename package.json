@@ -1,6 +1,6 @@
 {
   "name": "express-respond-simple",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Creates simple express middleware for responding any status and body.",
   "main": "index.js",
   "scripts": {
