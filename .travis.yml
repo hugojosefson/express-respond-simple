@@ -1,5 +1,7 @@
-sudo: false
 language: node_js
+
+sudo: false
+
 node_js:
   - "8.10.0"
   - "8"
@@ -9,6 +11,3 @@ node_js:
   - "11"
   - "12.0.0"
   - "12"
-cache:
-  directories:
-    - node_modules
