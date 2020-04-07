@@ -34,7 +34,7 @@
     "standard": "^13.0.2"
   },
   "dependencies": {
-    "camelcase": "^5.3.1",
+    "camelcase": "^6.0.0",
     "statuses": "^1.2.1"
   }
 }
