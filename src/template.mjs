@@ -27,5 +27,7 @@ const responderWithCode = code => {
   }
 }
 
-export default (code, body, forceCodeEvenIfEmptyBody) =>
+const respond = (code, body, forceCodeEvenIfEmptyBody) =>
   responderWithCode(code)(body, forceCodeEvenIfEmptyBody)
+
+export default respond
