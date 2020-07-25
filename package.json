@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "run-s lint mocha",
-    "lint": "standard | snazzy",
-    "lint-fix": "standard --fix | snazzy",
+    "lint": "standard --fix",
     "mocha": "mocha"
   },
   "repository": "hugojosefson/express-respond-simple",
@@ -30,7 +29,6 @@
     "chai-spies": "^1.0.0",
     "mocha": "^6.1.4",
     "npm-run-all": "^4.1.5",
-    "snazzy": "^8.0.0",
     "standard": "^13.0.2"
   },
   "dependencies": {
