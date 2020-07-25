@@ -27,8 +27,10 @@ const responderWithCode = code => {
   }
 }
 
-export default (code, body, forceCodeEvenIfEmptyBody) =>
+const respond = (code, body, forceCodeEvenIfEmptyBody) =>
   responderWithCode(code)(body, forceCodeEvenIfEmptyBody)
+
+export default respond
 
 export const respond100 = responderWithCode(100)
 export const respond101 = responderWithCode(101)
@@ -157,3 +159,6 @@ export const loopDetected = respond508
 export const bandwidthLimitExceeded = respond509
 export const notExtended = respond510
 export const networkAuthenticationRequired = respond511
+
+Object.assign(respond, { respond100, respond101, respond102, respond103, respond200, respond201, respond202, respond203, respond204, respond205, respond206, respond207, respond208, respond226, respond300, respond301, respond302, respond303, respond304, respond305, respond307, respond308, respond400, respond401, respond402, respond403, respond404, respond405, respond406, respond407, respond408, respond409, respond410, respond411, respond412, respond413, respond414, respond415, respond416, respond417, respond418, respond421, respond422, respond423, respond424, respond425, respond426, respond428, respond429, respond431, respond451, respond500, respond501, respond502, respond503, respond504, respond505, respond506, respond507, respond508, respond509, respond510, respond511 })
+Object.assign(respond, { continue_, switchingProtocols, processing, earlyHints, ok, created, accepted, nonAuthoritativeInformation, noContent, resetContent, partialContent, multiStatus, alreadyReported, imUsed, multipleChoices, movedPermanently, found, seeOther, notModified, useProxy, temporaryRedirect, permanentRedirect, badRequest, unauthorized, paymentRequired, forbidden, notFound, methodNotAllowed, notAcceptable, proxyAuthenticationRequired, requestTimeout, conflict, gone, lengthRequired, preconditionFailed, payloadTooLarge, uriTooLong, unsupportedMediaType, rangeNotSatisfiable, expectationFailed, imATeapot, misdirectedRequest, unprocessableEntity, locked, failedDependency, tooEarly, upgradeRequired, preconditionRequired, tooManyRequests, requestHeaderFieldsTooLarge, unavailableForLegalReasons, internalServerError, notImplemented, badGateway, serviceUnavailable, gatewayTimeout, httpVersionNotSupported, variantAlsoNegotiates, insufficientStorage, loopDetected, bandwidthLimitExceeded, notExtended, networkAuthenticationRequired })
