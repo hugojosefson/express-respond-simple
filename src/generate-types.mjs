@@ -1,6 +1,6 @@
 import status from 'statuses'
 import { emptyEquivalent } from './template.mjs'
-import { nameFor } from './generate-exports.mjs'
+import nameFor from './name-for.mjs'
 
 const typeFor = code => `(${status.empty[code] ? '' : 'body?: (string|object)'}${emptyEquivalent[code] ? ', forceCodeEvenIfEmptyBody?: boolean' : ''}): Handler`
 
