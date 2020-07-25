@@ -1,22 +1,23 @@
 /* eslint-env mocha */
 /* eslint-disable no-unused-expressions */
-var expect = require('chai').expect
-var respond = require('..')
+import chai from 'chai'
+import respond from '../dist/index.mjs'
 
-describe('respond', function () {
-  it('is a function', function () {
+const { expect } = chai
+describe('respond', () => {
+  it('is a function', () => {
     expect(respond).to.be.a('function')
   })
 
-  it('does not accept empty input', function () {
+  it('does not accept empty input', () => {
     expect(respond).to.throw('code must')
   })
 
-  it('does not accept invalid code', function () {
+  it('does not accept invalid code', () => {
     expect(respond.bind({}, 1)).to.throw('invalid status code')
   })
 
-  describe('has property', function () {
+  describe('has property', () => {
     [
       'respond200',
       'respond204',
@@ -24,14 +25,10 @@ describe('respond', function () {
       'ok',
       'noContent',
       'internalServerError'
-    ].forEach(function (prop) {
-      it(prop, function () {
-        expect(respond).has.a.property(prop)
-      })
-    })
+    ].forEach(prop => it(prop, () => expect(respond).has.a.property(prop)))
   })
 
-  describe('is a function', function () {
+  describe('is a function', () => {
     [
       'respond200',
       'respond204',
@@ -39,26 +36,22 @@ describe('respond', function () {
       'ok',
       'noContent',
       'internalServerError'
-    ].forEach(function (prop) {
-      it(prop, function () {
-        expect(respond[prop]).is.a('function')
-      })
-    })
+    ].forEach(prop => it(prop, () => expect(respond[prop]).is.a('function')))
   })
 
-  describe('properties are the same', function () {
+  describe('properties are the same', () => {
     [
       ['respond200', 'ok'],
       ['respond204', 'noContent'],
       ['respond500', 'internalServerError']
-    ].forEach(function (pair) {
-      it(pair[0] + ' === ' + pair[1], function () {
-        expect(respond[pair[0]]).equal(respond[pair[1]])
+    ].forEach(([numbered, named]) => {
+      it(`${numbered} === ${named}`, () => {
+        expect(respond[numbered]).equal(respond[named])
       })
     })
   })
 
-  describe('has NOT property', function () {
+  describe('has NOT property', () => {
     [
       '0',
       '1',
@@ -67,10 +60,6 @@ describe('respond', function () {
       'respond600',
       'OK',
       'Ok'
-    ].forEach(function (prop) {
-      it(prop, function () {
-        expect(respond).has.not.a.property(prop)
-      })
-    })
+    ].forEach(prop => it(prop, () => expect(respond).has.not.a.property(prop)))
   })
 })
